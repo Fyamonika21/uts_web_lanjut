@@ -1,19 +1,6 @@
 <?php
+use App\Http\Controllers\RegisterController;
 
-use App\Http\Controllers\AuthController;
-
-Route::get('/login', [AuthController::class, 'showLogin'])->name('login');
-Route::post('/login', [AuthController::class, 'login'])->name('login.post');
-
-Route::get('/register', [AuthController::class, 'showRegister'])->name('register');
-Route::post('/register', [AuthController::class, 'register'])->name('register.post');
-
-Route::get('/', function () {
-    return view('welcome');
-});
-
-Route::get('/pilihankegiatan', function () {
-    return view('kegiatan');
-});
-
+Route::post('/daftar', [RegisterController::class, 'store'])->name('register.store');
+Route::get('/daftar', [RegisterController::class, 'create'])->name('register.create');
 
